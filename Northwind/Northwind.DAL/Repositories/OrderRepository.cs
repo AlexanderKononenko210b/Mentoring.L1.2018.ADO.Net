@@ -157,55 +157,70 @@ namespace Northwind.DAL.Repositories
 
                     command.CommandType = CommandType.Text;
 
-                    var customerID = command.CreateParameter();
-                    customerID.ParameterName = "@customerID";
-                    customerID.Value = order.CustomerID;
-                    command.Parameters.Add(customerID);
-
-                    var employeeID = command.CreateParameter();
-                    employeeID.ParameterName = "@employeeID";
-                    employeeID.Value = order.EmployeeID;
-                    command.Parameters.Add(employeeID);
-
-                    var shipVia = command.CreateParameter();
-                    shipVia.ParameterName = "@shipVia";
-                    shipVia.Value = order.ShipVia;
-                    command.Parameters.Add(shipVia);
-
-                    var freight = command.CreateParameter();
-                    freight.ParameterName = "@freight";
-                    freight.Value = order.Freight;
-                    command.Parameters.Add(freight);
-
-                    var shipName = command.CreateParameter();
-                    shipName.ParameterName = "@shipName";
-                    shipName.Value = order.ShipName;
-                    command.Parameters.Add(shipName);
-
-                    var shipAddress = command.CreateParameter();
-                    shipAddress.ParameterName = "@shipAddress";
-                    shipAddress.Value = order.ShipAddress;
-                    command.Parameters.Add(shipAddress);
-
-                    var shipCity = command.CreateParameter();
-                    shipCity.ParameterName = "@shipCity";
-                    shipCity.Value = order.ShipCity;
-                    command.Parameters.Add(shipCity);
-
-                    var shipRegion = command.CreateParameter();
-                    shipRegion.ParameterName = "@shipRegion";
-                    shipRegion.Value = order.ShipRegion;
-                    command.Parameters.Add(shipRegion);
-
-                    var shipPostalCode = command.CreateParameter();
-                    shipPostalCode.ParameterName = "@shipPostalCode";
-                    shipPostalCode.Value = order.ShipPostalCode;
-                    command.Parameters.Add(shipPostalCode);
-
-                    var shipCountry = command.CreateParameter();
-                    shipCountry.ParameterName = "@shipCountry";
-                    shipCountry.Value = order.ShipCountry;
-                    command.Parameters.Add(shipCountry);
+                    command.Parameters.AddRange(
+                        new[]
+                        {
+                            new SqlParameter
+                            {
+                                ParameterName = "@customerID",
+                                Value = order.CustomerID,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@employeeID",
+                                Value = order.EmployeeID,
+                                DbType = DbType.Int32
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipVia",
+                                Value = order.ShipVia,
+                                DbType = DbType.Int32
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@freight",
+                                Value = order.Freight,
+                                DbType = DbType.Decimal
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipName",
+                                Value = order.ShipName,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipAddress",
+                                Value = order.ShipAddress,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipCity",
+                                Value = order.ShipCity,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipRegion",
+                                Value = order.ShipRegion,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipPostalCode",
+                                Value = order.ShipPostalCode,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipCountry",
+                                Value = order.ShipCountry,
+                                DbType = DbType.String
+                            }
+                        });
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -257,60 +272,76 @@ namespace Northwind.DAL.Repositories
 
                     command.CommandType = CommandType.Text;
 
-                    var customerID = command.CreateParameter();
-                    customerID.ParameterName = "@customerID";
-                    customerID.Value = order.CustomerID;
-                    command.Parameters.Add(customerID);
-
-                    var employeeID = command.CreateParameter();
-                    employeeID.ParameterName = "@employeeID";
-                    employeeID.Value = order.EmployeeID;
-                    command.Parameters.Add(employeeID);
-
-                    var shipVia = command.CreateParameter();
-                    shipVia.ParameterName = "@shipVia";
-                    shipVia.Value = order.ShipVia;
-                    command.Parameters.Add(shipVia);
-
-                    var freight = command.CreateParameter();
-                    freight.ParameterName = "@freight";
-                    freight.Value = order.Freight;
-                    command.Parameters.Add(freight);
-
-                    var shipName = command.CreateParameter();
-                    shipName.ParameterName = "@shipName";
-                    shipName.Value = order.ShipName;
-                    command.Parameters.Add(shipName);
-
-                    var shipAddress = command.CreateParameter();
-                    shipAddress.ParameterName = "@shipAddress";
-                    shipAddress.Value = order.ShipAddress;
-                    command.Parameters.Add(shipAddress);
-
-                    var shipCity = command.CreateParameter();
-                    shipCity.ParameterName = "@shipCity";
-                    shipCity.Value = order.ShipCity;
-                    command.Parameters.Add(shipCity);
-
-                    var shipRegion = command.CreateParameter();
-                    shipRegion.ParameterName = "@shipRegion";
-                    shipRegion.Value = order.ShipRegion;
-                    command.Parameters.Add(shipRegion);
-
-                    var shipPostalCode = command.CreateParameter();
-                    shipPostalCode.ParameterName = "@shipPostalCode";
-                    shipPostalCode.Value = order.ShipPostalCode;
-                    command.Parameters.Add(shipPostalCode);
-
-                    var shipCountry = command.CreateParameter();
-                    shipCountry.ParameterName = "@shipCountry";
-                    shipCountry.Value = order.ShipCountry;
-                    command.Parameters.Add(shipCountry);
-
-                    var orderID = command.CreateParameter();
-                    orderID.ParameterName = "@orderID";
-                    orderID.Value = order.OrderID;
-                    command.Parameters.Add(orderID);
+                    command.Parameters.AddRange(
+                        new[]
+                        {
+                            new SqlParameter
+                            {
+                                ParameterName = "@customerID",
+                                Value = order.CustomerID,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@employeeID",
+                                Value = order.EmployeeID,
+                                DbType = DbType.Int32
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipVia",
+                                Value = order.ShipVia,
+                                DbType = DbType.Int32
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@freight",
+                                Value = order.Freight,
+                                DbType = DbType.Decimal
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipName",
+                                Value = order.ShipName,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipAddress",
+                                Value = order.ShipAddress,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipCity",
+                                Value = order.ShipCity,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipRegion",
+                                Value = order.ShipRegion,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipPostalCode",
+                                Value = order.ShipPostalCode,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@shipCountry",
+                                Value = order.ShipCountry,
+                                DbType = DbType.String
+                            },
+                            new SqlParameter
+                            {
+                                ParameterName = "@orderID",
+                                Value = order.OrderID,
+                                DbType = DbType.Int32
+                            }
+                        });
 
                     var countUpdateRows = command.ExecuteNonQuery();
                     if (countUpdateRows != 1)
@@ -437,10 +468,14 @@ namespace Northwind.DAL.Repositories
 
                     command.CommandType = CommandType.Text;
 
-                    var orderId = command.CreateParameter();
-                    orderId.ParameterName = "@orderId";
-                    orderId.Value = id;
-                    command.Parameters.Add(orderId);
+                    command.Parameters.Add(
+                        new SqlParameter
+                        {
+                            ParameterName = "@orderId",
+                            Value = id,
+                            DbType = DbType.Int32
+                        }
+                    );
 
                     var countDeleteRows = command.ExecuteNonQuery();
                     if (countDeleteRows != 1)
